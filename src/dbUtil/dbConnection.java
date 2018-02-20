@@ -1,14 +1,33 @@
 
-package dbUtil;
+package sample;
+import dbUtil.dbconnection;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.SQLException;
 
-public class dbconnection {
-    private static final String SQCONN = "jdbc:sqlite:school.sqlite";
-    private  static Connection getConnection(){
-        try
+public class loginModel {
 
-        Class.forName("org.sqlite.JDBC");
-        return DriverManager.getconnection (SQCONN);
-    }//class
+            import dbUtil.dbconnection;
+
+            import java.sql.Connection;
+            import java.sql.SQLException;
+
+    public class loginModel {
+        Connection connection;
+        public loginModel() throws SQLException
+        {
+            this.connection = dbconnection.getConnection();
+            if (this.connection == null)
+            {
+
+            }
+            System.exit(1);
+        }
+    }//loginModel
+    public boolean isDatabaseConnection(){
+            return this.connection != null;
+}
+
+
+}//loginModel
+
